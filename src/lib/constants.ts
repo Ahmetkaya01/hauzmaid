@@ -5,23 +5,36 @@ export const SITE = {
   phoneDisplay: "016-356 60 55",
   phoneTel: "+60163566055",
   whatsapp: "https://wa.me/60163566055",
-  maps: "https://maps.app.goo.gl/CAwzmGEKALeuKQmCA",
+  email: "contact@hauzmaid.com",
+  maps: "https://maps.app.goo.gl/9BShPJjkZq9aHo1A9",
+  mapsCid: "https://maps.google.com/?cid=18384063884514091927",
+  mapsCidValue: "18384063884514091927",
+  mapsEmbed:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254965!2d101.6869895!3d3.1385059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xed5c6d2512fd235%3A0xff2150b3348ce397!2sHauzmaid%20Cleaning%20Services!5e0!3m2!1sen!2smy",
+  geo: { latitude: 3.1385059, longitude: 101.6869895 },
+  addressLocality: "Kuala Lumpur",
+  addressRegion: "Wilayah Persekutuan Kuala Lumpur",
+  addressCountry: "MY",
+  slogan: "No deposit, no transport fee. From RM80.",
+  openingHours: "Mo-Su 09:00-18:00",
+  opens: "09:00",
+  closes: "18:00",
   facebook: "https://www.facebook.com/hauzmaid.com.services/",
   facebookReviews: "https://www.facebook.com/hauzmaid.com.services/reviews",
   instagram: "https://www.instagram.com/hauzmaid/",
   area: "Klang Valley / Kuala Lumpur, Malaysia",
   priceRange: "RM80+",
+  foundingDate: "2022",
+  gaId: "G-5Q2DCPV01X",
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/#services", label: "Services" },
-  { href: "/#prices", label: "Prices" },
-  { href: "/#about", label: "About" },
-  { href: "/#why-us", label: "Why us" },
-  { href: "/#areas", label: "Areas" },
-  { href: "/#reviews", label: "Reviews" },
+  { href: "/services", label: "Services" },
+  { href: "/prices", label: "Prices" },
+  { href: "/about", label: "About" },
+  { href: "/areas", label: "Areas" },
   { href: "/tips", label: "Tips" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export const SERVICES = [
@@ -98,39 +111,51 @@ export const ADDONS = [
 
 export const FEATURED_AREAS = [
   {
-    name: "Kuala Lumpur",
-    blurb: "House cleaning KL — city condos, apartments & landed homes.",
-  },
-  {
-    name: "Petaling Jaya",
-    blurb: "Part-time maid service for PJ homes and offices.",
+    name: "Cheras",
+    blurb: "Our busiest area — weekly cleaning, condos, and post-renovation homes.",
   },
   {
     name: "Subang Jaya",
-    blurb: "Hourly cleaning for Subang residences, USJ included.",
+    blurb: "Hourly maids across USJ, SS12–SS19, Sunway, and Putra Heights.",
+  },
+  {
+    name: "KLCC / Bukit Bintang",
+    blurb: "City-centre condos and offices — visitor pass friendly.",
+  },
+  {
+    name: "Puchong",
+    blurb: "Weekly home cleaning around Bandar Puteri, Kinrara, and Puchong Jaya.",
+  },
+  {
+    name: "Bangsar South / Mid Valley",
+    blurb: "Condo living and evening office cleans next to Mid Valley.",
+  },
+  {
+    name: "Setapak",
+    blurb: "Hourly cleaning for apartments and families in Setapak & nearby Wangsa Maju.",
   },
   {
     name: "Shah Alam",
-    blurb: "One-time and weekly home cleaning across Shah Alam.",
+    blurb: "One-time and weekly cleans for larger landed homes.",
   },
   {
-    name: "Ampang",
-    blurb: "Move-in / move-out and regular cleaning in Ampang.",
+    name: "Bangsar",
+    blurb: "Landed homes in Bangsar Baru and Bukit Bandaraya.",
   },
   {
-    name: "Cheras",
-    blurb: "Post-renovation and residential cleaning in Cheras.",
+    name: "Old Klang Road / Kuchai Lama",
+    blurb: "Terrace houses and condos along OKR, Kuchai Lama, OUG, and Taman Desa.",
   },
 ] as const;
 
 export const AREAS = [
-  "Kajang",
-  "Puchong",
+  "Wangsa Maju",
+  "Ampang",
+  "Kuala Lumpur",
+  "Petaling Jaya",
   "Damansara",
   "Mont Kiara",
-  "Bangsar",
-  "Setapak",
-  "Wangsa Maju",
+  "Kajang",
   "Kepong",
   "Seri Kembangan",
   "Putrajaya",
@@ -202,6 +227,15 @@ export const FAQ_ITEMS = [
   },
 ] as const;
 
+/** The prefilled text is visible to the customer, so it stays plain and short. */
 export function whatsappQuoteUrl(message: string): string {
-  return `${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+  return `${SITE.whatsapp}?text=${encodeURIComponent(message.trim())}`;
+}
+
+export function whatsappSiteUrl(lang: "en" | "ms" = "en"): string {
+  return whatsappQuoteUrl(
+    lang === "ms"
+      ? "Hai Hauzmaid! Saya ingin sebut harga pembersihan.\n\nArea: \nService: pembersihan rumah"
+      : "Hi Hauzmaid! I'd like a cleaning quote, please.\n\nArea: \nService: house cleaning",
+  );
 }

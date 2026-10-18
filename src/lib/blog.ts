@@ -1,3 +1,6 @@
+import { BLOG_MS } from "@/lib/blog-ms";
+import type { Lang } from "@/lib/i18n";
+
 export const BLOG_CATEGORIES = [
   "Home Cleaning",
   "Office Cleaning",
@@ -20,11 +23,17 @@ export type BlogPost = {
   readingTime: number;
   date: string;
   metaDescription: string;
-  /** CSS gradient stops for branded card placeholder */
+  /** Cover image under /public/tips/{slug}.jpg */
+  coverImage: string;
+  /** CSS gradient stops — fallback while image loads */
   accentFrom: string;
   accentTo: string;
   sections: BlogSection[];
 };
+
+function tipCover(slug: string): string {
+  return `/tips/${slug}.jpg`;
+}
 
 export const BLOG_POSTS: BlogPost[] = [
   {
@@ -37,6 +46,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-02",
     metaDescription:
       "Learn how often to deep clean your home in Kuala Lumpur and Klang Valley. Expert tips from Hauzmaid professional cleaning services Malaysia.",
+    coverImage: tipCover("how-often-deep-clean-home-kl"),
     accentFrom: "#1a2330",
     accentTo: "#4a82cb",
     sections: [
@@ -73,6 +83,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-05",
     metaDescription:
       "10 easy ways to keep your Klang Valley home dust-free. Practical tips for house cleaning KL from Hauzmaid.",
+    coverImage: tipCover("keep-house-dust-free-klang-valley"),
     accentFrom: "#121923",
     accentTo: "#356db8",
     sections: [
@@ -109,6 +120,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-10",
     metaDescription:
       "Move-in cleaning checklist for Malaysian homes. Book professional move-in cleaning in Kuala Lumpur and Klang Valley with Hauzmaid.",
+    coverImage: tipCover("move-in-cleaning-checklist-malaysia"),
     accentFrom: "#0b1118",
     accentTo: "#4a82cb",
     sections: [
@@ -145,6 +157,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-12",
     metaDescription:
       "Move-out cleaning checklist for KL rentals. Professional move-out cleaning Kuala Lumpur and Klang Valley by Hauzmaid.",
+    coverImage: tipCover("move-out-cleaning-checklist-kl"),
     accentFrom: "#1a2330",
     accentTo: "#2f6bb8",
     sections: [
@@ -181,6 +194,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-18",
     metaDescription:
       "How to remove bathroom mold naturally in Malaysia. Tips for humid KL homes plus when to book home cleaning services KL.",
+    coverImage: tipCover("remove-bathroom-mold-naturally"),
     accentFrom: "#121923",
     accentTo: "#3d7bc4",
     sections: [
@@ -217,6 +231,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-22",
     metaDescription:
       "Why professional cleaning services Malaysia save time for busy KL families. Transparent hourly rates from Hauzmaid.",
+    coverImage: tipCover("why-professional-cleaning-saves-time"),
     accentFrom: "#0b1118",
     accentTo: "#4a82cb",
     sections: [
@@ -246,6 +261,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-06-26",
     metaDescription:
       "Kitchen cleaning tips for busy families in Kuala Lumpur. Pair daily habits with professional house cleaning KL from Hauzmaid.",
+    coverImage: tipCover("kitchen-cleaning-tips-busy-families"),
     accentFrom: "#1a2330",
     accentTo: "#356db8",
     sections: [
@@ -282,6 +298,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-01",
     metaDescription:
       "Cleaning tips for pet owners in Malaysia. Keep fur and odours under control with habits plus house cleaning Klang Valley support.",
+    coverImage: tipCover("cleaning-tips-pet-owners-malaysia"),
     accentFrom: "#121923",
     accentTo: "#4a82cb",
     sections: [
@@ -318,6 +335,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-05",
     metaDescription:
       "Post renovation cleaning guide for KL homes. Professional post renovation cleaning Kuala Lumpur & Klang Valley by Hauzmaid.",
+    coverImage: tipCover("post-renovation-cleaning-guide-kl"),
     accentFrom: "#0b1118",
     accentTo: "#2f6bb8",
     sections: [
@@ -354,6 +372,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-08",
     metaDescription:
       "Weekly house cleaning checklist for KL homes. Use it yourself or book Hauzmaid home cleaning services KL to cover the list.",
+    coverImage: tipCover("weekly-house-cleaning-checklist"),
     accentFrom: "#1a2330",
     accentTo: "#4a82cb",
     sections: [
@@ -390,6 +409,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2026-07-12",
     metaDescription:
       "Office cleaning tips for Kuala Lumpur small teams. Book professional office cleaning Kuala Lumpur with Hauzmaid.",
+    coverImage: tipCover("office-cleaning-tips-kuala-lumpur"),
     accentFrom: "#121923",
     accentTo: "#356db8",
     sections: [
@@ -417,6 +437,18 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
 ];
+
+export function localizePost(post: BlogPost, lang: Lang): BlogPost {
+  if (lang !== "ms") return post;
+  const ms = BLOG_MS[post.slug];
+  if (!ms) return post;
+  return {
+    ...post,
+    title: ms.title,
+    excerpt: ms.excerpt,
+    sections: ms.sections,
+  };
+}
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
@@ -446,7 +478,7 @@ export function filterPosts(
     const catOk = category === "All" || p.category === category;
     if (!catOk) return false;
     if (!q) return true;
-    const hay = `${p.title} ${p.excerpt} ${p.category} ${p.metaDescription}`.toLowerCase();
+    const hay = `${p.title} ${p.excerpt} ${p.category} ${p.metaDescription} ${BLOG_MS[p.slug]?.title ?? ""} ${BLOG_MS[p.slug]?.excerpt ?? ""}`.toLowerCase();
     return hay.includes(q);
   });
 }

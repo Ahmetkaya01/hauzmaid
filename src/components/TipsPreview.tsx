@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { useI18n } from "@/components/LanguageProvider";
 import { TipCard } from "@/components/TipCard";
 import { getFeaturedPosts } from "@/lib/blog";
 
 export function TipsPreview() {
+  const { t } = useI18n();
   const posts = getFeaturedPosts(3);
 
   return (
@@ -14,21 +18,18 @@ export function TipsPreview() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-sm font-medium tracking-wide text-[var(--hm-accent)] uppercase">
-              Cleaning tips &amp; home care
+              {t.tipsPreview.kicker}
             </p>
             <h2 className="mt-2 max-w-2xl font-display text-3xl font-medium text-[var(--hm-text)] sm:text-4xl">
-              Guides for cleaner homes in Klang Valley
+              {t.tipsPreview.h2}
             </h2>
-            <p className="mt-3 max-w-2xl text-[var(--hm-muted)]">
-              Short, practical articles on house cleaning KL, move-in/out prep,
-              and everyday home care — from the Hauzmaid team.
-            </p>
+            <p className="mt-3 max-w-2xl text-[var(--hm-muted)]">{t.tipsPreview.intro}</p>
           </div>
           <Link
             href="/tips"
             className="text-sm font-medium text-[var(--hm-accent)] hover:underline"
           >
-            Browse all tips →
+            {t.tipsPreview.browseAll}
           </Link>
         </div>
 

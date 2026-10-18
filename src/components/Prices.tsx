@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ADDONS, PACKAGES, SITE, whatsappQuoteUrl } from "@/lib/constants";
+import { ADDONS, PACKAGES, whatsappQuoteUrl } from "@/lib/constants";
+import { useI18n } from "@/components/LanguageProvider";
 import {
   EXTEND_RATE,
   NIGHT_RATE,
@@ -22,7 +23,9 @@ function parseHoursInput(raw: string): number {
   return Math.min(12, Math.max(2, n));
 }
 
-export function Prices() {
+export function Prices({ asPage = false }: { asPage?: boolean }) {
+  const { t } = useI18n();
+  const Heading = asPage ? "h1" : "h2";
   const [helpersInput, setHelpersInput] = useState("1");
   const [hoursInput, setHoursInput] = useState("2");
   const [jobType, setJobType] = useState<JobType>("house");
@@ -52,6 +55,9 @@ export function Prices() {
       !tools &&
       !ladder,
   );
+  const selectedPackageIndex = selectedPackage
+    ? PACKAGES.indexOf(selectedPackage)
+    : -1;
 
   function selectPackage(pkg: (typeof PACKAGES)[number]) {
     setHelpersInput(String(pkg.helpers));
@@ -65,102 +71,109 @@ export function Prices() {
     });
   }
 
-  const quoteMessage = `Hi Hauzmaid, I'd like a quote: ${estimate.helpers} helper(s), ${estimate.hours} hour(s), ${jobType} cleaning${tools ? ", tools" : ""}${ladder ? ", ladder" : ""}. Estimate ~RM${estimate.total}.`;
+  const addonLabels = [t.prices.addonTools, t.prices.addonLadder];
+
+  const quoteMessage = [
+    `${t.prices.quoteIntro} ${estimate.helpers} × ${estimate.hours}h, ${jobType}`,
+    tools ? `+ ${t.prices.quoteTools}` : "",
+    ladder ? `+ ${t.prices.quoteLadder}` : "",
+    `${t.prices.quoteEstimate} ~RM${estimate.total}.`,
+    "",
+    "Area: ",
+    `Service: ${jobType}`,
+    `Helpers: ${estimate.helpers}`,
+    `Hours: ${estimate.hours}`,
+  ]
+    .filter((line) => line !== "")
+    .join("\n");
 
   return (
     <section
       id="prices"
-      className="scroll-mt-20 border-t border-[var(--hm-border)] bg-[var(--hm-surface)] py-20 sm:py-24"
+      className={`scroll-mt-20 bg-[var(--hm-surface)] ${
+        asPage ? "pt-8 pb-20 sm:pb-24" : "border-t border-[var(--hm-border)] py-20 sm:py-24"
+      }`}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="text-sm font-medium tracking-wide text-[var(--hm-accent)] uppercase">
-          Prices
+          {t.prices.kicker}
         </p>
-        <h2 className="mt-2 max-w-2xl font-display text-3xl font-medium text-[var(--hm-text)] sm:text-4xl">
-          Clear hourly rates — from RM80
-        </h2>
-        <p className="mt-3 max-w-2xl text-[var(--hm-muted)]">
-          Minimum order is <strong className="text-[var(--hm-text)]">1 helper × 2 hours at RM40/hr → RM80</strong>.
-          When total maid-hours is 3 or more (e.g. 1×3h, or <strong className="text-[var(--hm-text)]">2 helpers × 2 hours</strong>),
-          the rate is <strong className="text-[var(--hm-text)]">RM35/hr per maid</strong> — so 2×2h = RM140.
-        </p>
+        <Heading className="mt-2 max-w-2xl font-display text-3xl font-medium text-[var(--hm-text)] sm:text-4xl">
+          {t.prices.h2}
+        </Heading>
+        <p className="mt-3 max-w-2xl text-[var(--hm-muted)]">{t.prices.intro}</p>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           <div>
             <h3 className="font-display text-xl text-[var(--hm-text)]">
-              House / office cleaning
+              {t.prices.houseTitle}
             </h3>
             <dl className="mt-4 space-y-3 text-sm">
               <div className="flex justify-between gap-4 border-b border-[var(--hm-border)] pb-3">
-                <dt className="text-[var(--hm-muted)]">Minimum booking</dt>
-                <dd className="text-[var(--hm-text)]">2 hours</dd>
+                <dt className="text-[var(--hm-muted)]">{t.prices.rows.minBooking}</dt>
+                <dd className="text-[var(--hm-text)]">{t.prices.twoHours}</dd>
               </div>
               <div className="flex justify-between gap-4 border-b border-[var(--hm-border)] pb-3">
-                <dt className="text-[var(--hm-muted)]">Min order (1 helper × 2 hrs)</dt>
-                <dd className="text-[var(--hm-text)]">RM40 / hour / maid</dd>
+                <dt className="text-[var(--hm-muted)]">{t.prices.rows.minOrder}</dt>
+                <dd className="text-[var(--hm-text)]">RM40 {t.prices.perHourMaid}</dd>
               </div>
               <div className="flex justify-between gap-4 border-b border-[var(--hm-border)] pb-3">
-                <dt className="text-[var(--hm-muted)]">Minimum order total</dt>
+                <dt className="text-[var(--hm-muted)]">{t.prices.rows.minTotal}</dt>
                 <dd className="font-medium text-[var(--hm-accent)]">RM80</dd>
               </div>
               <div className="flex justify-between gap-4 border-b border-[var(--hm-border)] pb-3">
-                <dt className="text-[var(--hm-muted)]">3+ maid-hours total</dt>
-                <dd className="text-[var(--hm-text)]">RM35 / hour / maid</dd>
+                <dt className="text-[var(--hm-muted)]">{t.prices.rows.threePlus}</dt>
+                <dd className="text-[var(--hm-text)]">RM35 {t.prices.perHourMaid}</dd>
               </div>
               <div className="flex justify-between gap-4 border-b border-[var(--hm-border)] pb-3">
-                <dt className="text-[var(--hm-muted)]">Extension (after booked time)</dt>
-                <dd className="text-[var(--hm-text)]">RM{EXTEND_RATE} / hour / maid</dd>
+                <dt className="text-[var(--hm-muted)]">{t.prices.rows.extension}</dt>
+                <dd className="text-[var(--hm-text)]">RM{EXTEND_RATE} {t.prices.perHourMaid}</dd>
               </div>
             </dl>
 
             <h3 className="mt-10 font-display text-xl text-[var(--hm-text)]">
-              Other rates &amp; add-ons
+              {t.prices.otherTitle}
             </h3>
             <dl className="mt-4 space-y-3 text-sm">
               <div className="flex justify-between gap-4 border-b border-[var(--hm-border)] pb-3">
-                <dt className="text-[var(--hm-muted)]">Post-renovation</dt>
-                <dd className="text-[var(--hm-text)]">RM{POST_RENO_RATE} / hour / maid</dd>
+                <dt className="text-[var(--hm-muted)]">{t.prices.postReno}</dt>
+                <dd className="text-[var(--hm-text)]">RM{POST_RENO_RATE} {t.prices.perHourMaid}</dd>
               </div>
               <div className="flex justify-between gap-4 border-b border-[var(--hm-border)] pb-3">
-                <dt className="text-[var(--hm-muted)]">Night shift (6PM–12AM)</dt>
-                <dd className="text-[var(--hm-text)]">RM{NIGHT_RATE} / hour / maid</dd>
+                <dt className="text-[var(--hm-muted)]">{t.prices.nightShift}</dt>
+                <dd className="text-[var(--hm-text)]">RM{NIGHT_RATE} {t.prices.perHourMaid}</dd>
               </div>
-              {ADDONS.map((addon) => (
+              {ADDONS.map((addon, i) => (
                 <div
                   key={addon.label}
                   className="flex justify-between gap-4 border-b border-[var(--hm-border)] pb-3"
                 >
-                  <dt className="text-[var(--hm-muted)]">{addon.label}</dt>
+                  <dt className="text-[var(--hm-muted)]">{addonLabels[i] ?? addon.label}</dt>
                   <dd className="text-[var(--hm-text)]">
-                    RM{addon.price} / {addon.unit}
+                    RM{addon.price} / {t.prices.perJob}
                   </dd>
                 </div>
               ))}
             </dl>
 
             <ul className="mt-6 space-y-1 text-sm text-[var(--hm-muted)]">
-              <li>· No transport fee</li>
-              <li>· No deposit</li>
-              <li>· Pay by bank transfer when helpers arrive</li>
-              <li>· Aircon service — non-chemical from RM70; overhaul from RM150</li>
-              <li>· Extra tasks available: ironing, folding clothes, fridge, ceiling fan, outdoor</li>
+              {t.prices.bullets.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h3 className="font-display text-xl text-[var(--hm-text)]">
-              Example packages
+              {t.prices.packagesTitle}
             </h3>
-            <p className="mt-1 text-sm text-[var(--hm-muted)]">
-              Tap a package to load it into Quick estimate.
-            </p>
+            <p className="mt-1 text-sm text-[var(--hm-muted)]">{t.prices.packagesHint}</p>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-              {PACKAGES.map((pkg) => {
+              {PACKAGES.map((pkg, i) => {
                 const isSelected =
-                  selectedPackage?.label === pkg.label ||
-                  (helpers === pkg.helpers &&
-                    hours === pkg.hours &&
-                    jobType === "house");
+                  helpers === pkg.helpers &&
+                  hours === pkg.hours &&
+                  jobType === "house";
                 return (
                   <li key={pkg.label}>
                     <button
@@ -173,14 +186,18 @@ export function Prices() {
                           : "border-[var(--hm-border)] bg-[var(--hm-surface-2)] hover:border-[var(--hm-accent)]/50"
                       }`}
                     >
-                      <p className="text-sm text-[var(--hm-muted)]">{pkg.label}</p>
+                      <p className="text-sm text-[var(--hm-muted)]">
+                        {t.prices.packageLabels[i] ?? pkg.label}
+                      </p>
                       <p className="mt-1 font-display text-3xl text-[var(--hm-text)]">
                         RM{pkg.price}
                       </p>
-                      <p className="mt-1 text-xs text-[var(--hm-muted)]">{pkg.detail}</p>
+                      <p className="mt-1 text-xs text-[var(--hm-muted)]">
+                        {t.prices.packageDetails[i] ?? pkg.detail}
+                      </p>
                       {isSelected ? (
                         <p className="mt-2 text-xs font-medium text-[var(--hm-accent)]">
-                          Selected in estimate ↓
+                          {t.prices.selectedInEstimate}
                         </p>
                       ) : null}
                     </button>
@@ -194,17 +211,17 @@ export function Prices() {
               className="mt-8 scroll-mt-28 rounded-lg border border-[var(--hm-border)] bg-[var(--hm-bg)] p-5"
             >
               <h3 className="font-display text-xl text-[var(--hm-text)]">
-                Quick estimate
+                {t.prices.estimateTitle}
               </h3>
               <p className="mt-1 text-sm text-[var(--hm-muted)]">
-                {selectedPackage
-                  ? `Package loaded: ${selectedPackage.label}`
-                  : "Helpers × hours with our rate rules. Final quote may vary by scope."}
+                {selectedPackageIndex >= 0
+                  ? `${t.prices.packageLoaded} ${t.prices.packageLabels[selectedPackageIndex]}`
+                  : t.prices.estimateHint}
               </p>
 
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <label className="block text-sm">
-                  <span className="text-[var(--hm-muted)]">Helpers</span>
+                  <span className="text-[var(--hm-muted)]">{t.prices.helpers}</span>
                   <input
                     type="number"
                     min={1}
@@ -219,7 +236,7 @@ export function Prices() {
                   />
                 </label>
                 <label className="block text-sm">
-                  <span className="text-[var(--hm-muted)]">Hours (min 2)</span>
+                  <span className="text-[var(--hm-muted)]">{t.prices.hoursMin}</span>
                   <input
                     type="number"
                     min={2}
@@ -236,13 +253,13 @@ export function Prices() {
               </div>
 
               <fieldset className="mt-4">
-                <legend className="text-sm text-[var(--hm-muted)]">Job type</legend>
+                <legend className="text-sm text-[var(--hm-muted)]">{t.prices.jobType}</legend>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {(
                     [
-                      ["house", "House / office"],
-                      ["post-reno", "Post-renovation"],
-                      ["night", "Night shift"],
+                      ["house", t.prices.jobHouse],
+                      ["post-reno", t.prices.jobPostReno],
+                      ["night", t.prices.jobNight],
                     ] as const
                   ).map(([value, label]) => (
                     <button
@@ -269,7 +286,7 @@ export function Prices() {
                     onChange={(e) => setTools(e.target.checked)}
                     className="accent-[var(--hm-accent)]"
                   />
-                  Tools &amp; chemicals (+RM30)
+                  {t.prices.toolsCheckbox}
                 </label>
                 <label className="inline-flex items-center gap-2 text-[var(--hm-muted)]">
                   <input
@@ -278,15 +295,17 @@ export function Prices() {
                     onChange={(e) => setLadder(e.target.checked)}
                     className="accent-[var(--hm-accent)]"
                   />
-                  4 ft ladder (+RM40)
+                  {t.prices.ladderCheckbox}
                 </label>
               </div>
 
               <div className="mt-6 border-t border-[var(--hm-border)] pt-4">
                 <p className="text-sm text-[var(--hm-muted)]">
                   {estimate.helpers} × {estimate.hours}h = {estimate.maidHours}{" "}
-                  maid-hours × RM{estimate.rate}/hr
-                  {estimate.addons > 0 ? ` + RM${estimate.addons} add-ons` : ""}
+                  {t.prices.maidHours} × RM{estimate.rate}/h
+                  {estimate.addons > 0
+                    ? ` + RM${estimate.addons} ${t.prices.addonsSuffix}`
+                    : ""}
                 </p>
                 <p className="mt-1 font-display text-4xl text-[var(--hm-accent)]">
                   RM{estimate.total}
@@ -297,14 +316,10 @@ export function Prices() {
                   rel="noopener noreferrer"
                   className="wa-gradient mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-md px-4 py-3 text-sm font-semibold text-white shadow-[0_0_20px_rgba(37,211,102,0.25)] hover:opacity-90 sm:w-auto sm:min-h-0 sm:py-2.5"
                 >
-                  Confirm on WhatsApp
+                  {t.prices.confirmWhatsApp}
                 </a>
                 <p className="mt-3 text-xs text-[var(--hm-muted)]">
-                  Or call{" "}
-                  <a href={`tel:${SITE.phoneTel}`} className="text-[var(--hm-text)] underline">
-                    {SITE.phoneDisplay}
-                  </a>
-                  . Estimates are a guide — we confirm the final quote before booking.
+                  {t.prices.estimateNote}
                 </p>
               </div>
             </div>

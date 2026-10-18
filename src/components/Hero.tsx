@@ -1,16 +1,14 @@
+"use client";
+
 import Image from "next/image";
-import { SITE } from "@/lib/constants";
+import { whatsappSiteUrl } from "@/lib/constants";
+import { useI18n } from "@/components/LanguageProvider";
 import { WhatsAppIcon } from "@/components/icons";
 import { HeroVideo } from "@/components/HeroVideo";
 
-const TRUST = [
-  "No deposit",
-  "No transport fee",
-  "Pay on arrival",
-  "Google verified",
-] as const;
-
 export function Hero() {
+  const { lang, t } = useI18n();
+
   return (
     <section
       id="top"
@@ -31,20 +29,22 @@ export function Hero() {
             priority
           />
         </div>
-        <h1 className="animate-fade-up-delay mt-3 max-w-3xl font-display text-[1.75rem] leading-tight font-medium text-[var(--hm-text)] sm:text-4xl md:text-5xl">
-          Professional house cleaning &amp; aircon service in Klang Valley
+        <h1 className="animate-fade-up-delay hero-text-shadow mt-3 max-w-3xl font-display text-[1.75rem] leading-tight font-medium text-[var(--hm-text)] sm:text-4xl md:text-5xl">
+          {t.hero.h1}
         </h1>
-        <p className="animate-fade-up-delay-2 mt-3 max-w-xl text-[0.95rem] leading-relaxed text-[var(--hm-muted)] sm:mt-4 sm:text-lg">
-          Reliable maid &amp; cleaning in KL —{" "}
-          <span className="text-[var(--hm-text)]">no deposit, no transport fee</span>. From{" "}
-          <span className="text-[var(--hm-accent)]">RM80</span> (2 hours).
+        <p className="animate-fade-up-delay-2 hero-text-shadow mt-3 max-w-xl text-[0.95rem] leading-relaxed text-[var(--hm-text)] sm:mt-4 sm:text-lg">
+          {t.hero.sub1}
+          <span className="text-[var(--hm-text)]">{t.hero.subStrong}</span>
+          {t.hero.sub2}
+          <span className="text-[var(--hm-accent)]">RM35</span>
+          {t.hero.sub3}
         </p>
 
         <ul className="mt-5 flex flex-wrap gap-1.5 sm:mt-6 sm:gap-2" aria-label="Trust highlights">
-          {TRUST.map((chip) => (
+          {t.hero.trust.map((chip) => (
             <li
               key={chip}
-              className="rounded-full border border-[var(--hm-border)] bg-[color-mix(in_srgb,var(--hm-surface)_70%,transparent)] px-2.5 py-1 text-[0.7rem] text-[var(--hm-muted)] sm:px-3 sm:py-1.5 sm:text-sm"
+              className="rounded-full border border-[var(--hm-border)] bg-[color-mix(in_srgb,var(--hm-surface)_80%,transparent)] px-2.5 py-1 backdrop-blur-sm text-[0.7rem] text-[var(--hm-muted)] sm:px-3 sm:py-1.5 sm:text-sm"
             >
               {chip}
             </li>
@@ -53,25 +53,19 @@ export function Hero() {
 
         <div className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
           <a
-            href={SITE.whatsapp}
+            href={whatsappSiteUrl(lang)}
             target="_blank"
             rel="noopener noreferrer"
             className="wa-gradient inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-md px-5 py-3.5 text-base font-semibold text-white shadow-[0_0_32px_rgba(37,211,102,0.35)] transition-opacity hover:opacity-90 sm:w-auto sm:px-6"
           >
             <WhatsAppIcon className="h-5 w-5" />
-            WhatsApp us
+            {t.hero.ctaWhatsApp}
           </a>
           <a
             href="#prices"
             className="inline-flex min-h-12 w-full items-center justify-center rounded-md border border-[var(--hm-border)] bg-[color-mix(in_srgb,var(--hm-surface)_60%,transparent)] px-5 py-3 text-sm font-medium text-[var(--hm-text)] transition-colors hover:border-[var(--hm-accent)] sm:w-auto"
           >
-            See prices
-          </a>
-          <a
-            href={`tel:${SITE.phoneTel}`}
-            className="inline-flex min-h-11 w-full items-center justify-center px-2 py-2 text-sm font-medium text-[var(--hm-muted)] transition-colors hover:text-[var(--hm-text)] sm:w-auto"
-          >
-            or call {SITE.phoneDisplay}
+            {t.hero.ctaPrices}
           </a>
         </div>
       </div>

@@ -1,12 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { SITE, TESTIMONIALS } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
+import { useI18n } from "@/components/LanguageProvider";
 
 const ROTATE_MS = 2000;
 const FADE_MS = 350;
 
 export function Reviews() {
+  const { t } = useI18n();
+  const testimonials = t.reviews.testimonials;
+
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [paused, setPaused] = useState(false);
@@ -20,24 +24,27 @@ export function Reviews() {
     ).matches;
   }, []);
 
-  const goTo = useCallback((next: number) => {
-    if (fadeTimer.current) clearTimeout(fadeTimer.current);
-    const target = (next + TESTIMONIALS.length) % TESTIMONIALS.length;
-    if (reducedMotion.current) {
-      setIndex(target);
-      setProgress(0);
-      return;
-    }
-    setVisible(false);
-    fadeTimer.current = setTimeout(() => {
-      setIndex(target);
-      setVisible(true);
-      setProgress(0);
-    }, FADE_MS);
-  }, []);
+  const goTo = useCallback(
+    (next: number) => {
+      if (fadeTimer.current) clearTimeout(fadeTimer.current);
+      const target = (next + testimonials.length) % testimonials.length;
+      if (reducedMotion.current) {
+        setIndex(target);
+        setProgress(0);
+        return;
+      }
+      setVisible(false);
+      fadeTimer.current = setTimeout(() => {
+        setIndex(target);
+        setVisible(true);
+        setProgress(0);
+      }, FADE_MS);
+    },
+    [testimonials.length],
+  );
 
   useEffect(() => {
-    if (paused || TESTIMONIALS.length < 2) return;
+    if (paused || testimonials.length < 2) return;
 
     const started = Date.now();
     const tick = setInterval(() => {
@@ -53,9 +60,9 @@ export function Reviews() {
       clearInterval(tick);
       clearTimeout(rotate);
     };
-  }, [paused, index, goTo]);
+  }, [paused, index, goTo, testimonials.length]);
 
-  const current = TESTIMONIALS[index];
+  const current = testimonials[index] ?? testimonials[0];
 
   return (
     <section
@@ -66,18 +73,15 @@ export function Reviews() {
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-4">
           <div>
             <p className="text-sm font-medium tracking-wide text-[var(--hm-accent)] uppercase">
-              Reviews
+              {t.reviews.kicker}
             </p>
             <h2 className="mt-2 max-w-2xl font-display text-3xl font-medium text-[var(--hm-text)] sm:text-4xl">
-              What customers say
+              {t.reviews.h2}
             </h2>
-            <p className="mt-3 max-w-2xl text-[var(--hm-muted)]">
-              Real feedback and trust highlights from people who booked Hauzmaid
-              across Klang Valley.
-            </p>
+            <p className="mt-3 max-w-2xl text-[var(--hm-muted)]">{t.reviews.intro}</p>
           </div>
           <p className="w-fit rounded-full border border-[var(--hm-border)] px-3 py-1.5 text-[0.7rem] text-[var(--hm-muted)] sm:text-xs">
-            Auto-rotates every 2s · tap pause
+            {t.reviews.autoRotate}
           </p>
         </div>
 
@@ -89,23 +93,21 @@ export function Reviews() {
           onBlur={() => setPaused(false)}
           aria-live="polite"
           aria-roledescription="carousel"
-          aria-label="Customer reviews"
+          aria-label={t.reviews.carouselLabel}
         >
           <div className="flex items-center justify-between gap-3 text-sm text-[var(--hm-muted)]">
             <span>
-              Story{" "}
-              <span className="font-medium text-[var(--hm-text)]">
-                {index + 1}
-              </span>{" "}
-              of {TESTIMONIALS.length}
-              {paused ? " · paused" : ""}
+              {t.reviews.story}{" "}
+              <span className="font-medium text-[var(--hm-text)]">{index + 1}</span>{" "}
+              {t.reviews.of} {testimonials.length}
+              {paused ? t.reviews.paused : ""}
             </span>
             <div className="flex gap-2">
               <button
                 type="button"
                 onClick={() => goTo(index - 1)}
                 className="rounded-md border border-[var(--hm-border)] px-3 py-1.5 text-[var(--hm-text)] transition-colors hover:border-[var(--hm-accent)]"
-                aria-label="Previous review"
+                aria-label={t.reviews.prev}
               >
                 ←
               </button>
@@ -113,7 +115,7 @@ export function Reviews() {
                 type="button"
                 onClick={() => goTo(index + 1)}
                 className="rounded-md border border-[var(--hm-border)] px-3 py-1.5 text-[var(--hm-text)] transition-colors hover:border-[var(--hm-accent)]"
-                aria-label="Next review"
+                aria-label={t.reviews.next}
               >
                 →
               </button>
@@ -126,7 +128,7 @@ export function Reviews() {
           >
             <div
               className="h-full rounded-full bg-[var(--hm-accent)] transition-[width] duration-75 ease-linear motion-reduce:transition-none"
-              style={{ width: paused ? `${progress}%` : `${progress}%` }}
+              style={{ width: `${progress}%` }}
             />
           </div>
 
@@ -148,15 +150,15 @@ export function Reviews() {
           <div
             className="mt-6 flex flex-wrap gap-2"
             role="tablist"
-            aria-label="Choose a review"
+            aria-label={t.reviews.chooseReview}
           >
-            {TESTIMONIALS.map((t, i) => (
+            {testimonials.map((item, i) => (
               <button
-                key={t.source + i}
+                key={item.source + i}
                 type="button"
                 role="tab"
                 aria-selected={i === index}
-                aria-label={`Show story ${i + 1}`}
+                aria-label={`${t.reviews.showStory} ${i + 1}`}
                 onClick={() => goTo(i)}
                 className={`rounded-full px-3 py-1.5 text-xs transition-colors ${
                   i === index
@@ -170,6 +172,17 @@ export function Reviews() {
           </div>
         </div>
 
+        <ul className="mt-8 flex flex-wrap gap-2" aria-label={t.reviews.h2}>
+          {t.reviews.proofChips.map((chip) => (
+            <li
+              key={chip}
+              className="rounded-full border border-[var(--hm-border)] bg-[var(--hm-surface)] px-3 py-1.5 text-xs text-[var(--hm-muted)] sm:text-sm"
+            >
+              {chip}
+            </li>
+          ))}
+        </ul>
+
         <div className="mt-8 flex flex-wrap gap-4 text-sm">
           <a
             href={SITE.maps}
@@ -177,7 +190,7 @@ export function Reviews() {
             rel="noopener noreferrer"
             className="text-[var(--hm-accent)] hover:underline"
           >
-            Find us on Google Maps →
+            {t.reviews.mapsLink}
           </a>
           <a
             href={SITE.facebookReviews}
@@ -185,7 +198,7 @@ export function Reviews() {
             rel="noopener noreferrer"
             className="text-[var(--hm-blue)] hover:underline"
           >
-            Read more Facebook reviews →
+            {t.reviews.fbLink}
           </a>
         </div>
       </div>

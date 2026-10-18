@@ -69,7 +69,8 @@ export function BackgroundVideo({
       muted
       loop
       playsInline
-      preload="metadata"
+      // The clips are short, so buffering the whole file avoids a stall at the loop point.
+      preload="auto"
       poster={poster}
       aria-label={label}
       disableRemotePlayback

@@ -1,19 +1,22 @@
+"use client";
+
 import { SITE, whatsappQuoteUrl } from "@/lib/constants";
 import { WhatsAppIcon } from "@/components/icons";
-import type { BlogPost } from "@/lib/blog";
+import { useI18n } from "@/components/LanguageProvider";
+import { localizePost, type BlogPost } from "@/lib/blog";
 
 export function ArticleCta({ post }: { post: BlogPost }) {
-  const message = `Hi Hauzmaid, I read "${post.title}" and I'd like to book a cleaning.`;
+  const { lang, t } = useI18n();
+  const localized = localizePost(post, lang);
+  const message =
+    lang === "ms"
+      ? `Hai Hauzmaid, saya baca "${localized.title}" dan ingin menempah pembersihan.`
+      : `Hi Hauzmaid, I read "${localized.title}" and I'd like to book a cleaning.`;
 
   return (
     <aside className="mt-12 rounded-xl border border-[var(--hm-accent)]/30 bg-[color-mix(in_srgb,var(--hm-accent)_8%,var(--hm-surface))] p-6 sm:p-8">
-      <h2 className="font-display text-2xl text-[var(--hm-text)]">
-        Ready for a spotless home?
-      </h2>
-      <p className="mt-2 max-w-xl text-sm text-[var(--hm-muted)]">
-        Book professional house cleaning in Kuala Lumpur &amp; Klang Valley —
-        from RM80, no deposit, no transport fee.
-      </p>
+      <h2 className="font-display text-2xl text-[var(--hm-text)]">{t.tipsPage.ctaTitle}</h2>
+      <p className="mt-2 max-w-xl text-sm text-[var(--hm-muted)]">{t.tipsPage.ctaBody}</p>
       <div className="mt-5 flex flex-wrap gap-3">
         <a
           href={whatsappQuoteUrl(message)}
@@ -22,13 +25,7 @@ export function ArticleCta({ post }: { post: BlogPost }) {
           className="wa-gradient inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold text-white shadow-[0_0_20px_rgba(37,211,102,0.25)] hover:opacity-90"
         >
           <WhatsAppIcon className="h-4 w-4" />
-          Book on WhatsApp
-        </a>
-        <a
-          href={`tel:${SITE.phoneTel}`}
-          className="inline-flex items-center rounded-md border border-[var(--hm-border)] px-5 py-3 text-sm text-[var(--hm-text)] hover:border-[var(--hm-accent)]"
-        >
-          Call {SITE.phoneDisplay}
+          {t.tipsPage.ctaWhatsApp}
         </a>
       </div>
     </aside>
@@ -36,8 +33,10 @@ export function ArticleCta({ post }: { post: BlogPost }) {
 }
 
 export function ShareButtons({ post }: { post: BlogPost }) {
+  const { lang, t } = useI18n();
+  const localized = localizePost(post, lang);
   const url = `${SITE.url}/tips/${post.slug}`;
-  const text = encodeURIComponent(post.title);
+  const text = encodeURIComponent(localized.title);
   const encoded = encodeURIComponent(url);
 
   const links = [
@@ -57,7 +56,7 @@ export function ShareButtons({ post }: { post: BlogPost }) {
 
   return (
     <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-[var(--hm-border)] pt-6">
-      <span className="text-sm text-[var(--hm-muted)]">Share:</span>
+      <span className="text-sm text-[var(--hm-muted)]">{t.tipsPage.share}</span>
       {links.map((link) => (
         <a
           key={link.label}

@@ -35,7 +35,11 @@ yarn-error.log*
 
 # vercel
 .vercel
+.netlify
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Original (pre-loop-processing) video masters, kept locally only
+.video-src/

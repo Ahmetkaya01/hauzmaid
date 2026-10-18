@@ -1,4 +1,7 @@
-import { SITE } from "@/lib/constants";
+"use client";
+
+import { whatsappSiteUrl } from "@/lib/constants";
+import { useI18n } from "@/components/LanguageProvider";
 import { WhatsAppIcon } from "@/components/icons";
 
 function ChatIcon({ className }: { className?: string }) {
@@ -36,34 +39,11 @@ function BankIcon({ className }: { className?: string }) {
   );
 }
 
-const STEPS = [
-  {
-    n: "1",
-    title: "WhatsApp us",
-    body: "Share your area, date, helpers, and hours — or use our quote form.",
-    Icon: ChatIcon,
-  },
-  {
-    n: "2",
-    title: "Confirm booking",
-    body: "We confirm availability, rate rules, and any add-ons within minutes.",
-    Icon: CalendarIcon,
-  },
-  {
-    n: "3",
-    title: "Helpers arrive",
-    body: "Your cleaners arrive on time with everything agreed upfront.",
-    Icon: SparklesIcon,
-  },
-  {
-    n: "4",
-    title: "Pay by transfer",
-    body: "No deposit. Pay by bank transfer when helpers arrive.",
-    Icon: BankIcon,
-  },
-] as const;
+const STEP_ICONS = [ChatIcon, CalendarIcon, SparklesIcon, BankIcon] as const;
 
 export function Booking() {
+  const { lang, t } = useI18n();
+
   return (
     <section
       id="booking"
@@ -71,14 +51,12 @@ export function Booking() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="text-sm font-medium tracking-wide text-[var(--hm-accent)] uppercase">
-          How booking works
+          {t.booking.kicker}
         </p>
         <h2 className="mt-2 max-w-2xl font-display text-3xl font-medium text-[var(--hm-text)] sm:text-4xl">
-          From message to spotless in four simple steps
+          {t.booking.h2}
         </h2>
-        <p className="mt-3 max-w-2xl text-[var(--hm-muted)]">
-          No deposit, no paperwork — one WhatsApp message starts your booking.
-        </p>
+        <p className="mt-3 max-w-2xl text-[var(--hm-muted)]">{t.booking.intro}</p>
 
         <ol className="relative mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {/* connecting line (desktop) */}
@@ -86,33 +64,34 @@ export function Booking() {
             aria-hidden
             className="absolute top-7 right-[12.5%] left-[12.5%] hidden h-px bg-gradient-to-r from-[var(--hm-accent)]/10 via-[var(--hm-accent)]/50 to-[var(--hm-accent)]/10 lg:block"
           />
-          {STEPS.map(({ n, title, body, Icon }) => (
-            <li key={n} className="group relative flex flex-col items-center text-center sm:items-start sm:text-left">
-              <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-[var(--hm-accent)]/30 bg-[var(--hm-surface-2)] text-[var(--hm-accent)] shadow-[0_0_20px_rgba(74,130,203,0.15)] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[var(--hm-accent)] group-hover:shadow-[0_0_28px_rgba(74,130,203,0.35)] motion-reduce:transition-none group-hover:motion-reduce:translate-y-0">
-                <Icon className="h-6 w-6" />
-                <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--hm-accent)] text-xs font-bold text-white">
-                  {n}
-                </span>
-              </div>
-              <h3 className="mt-5 font-display text-xl text-[var(--hm-text)]">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--hm-muted)]">{body}</p>
-            </li>
-          ))}
+          {t.booking.steps.map((step, i) => {
+            const Icon = STEP_ICONS[i];
+            return (
+              <li key={step.title} className="group relative flex flex-col items-center text-center sm:items-start sm:text-left">
+                <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-[var(--hm-accent)]/30 bg-[var(--hm-surface-2)] text-[var(--hm-accent)] shadow-[0_0_20px_rgba(74,130,203,0.15)] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[var(--hm-accent)] group-hover:shadow-[0_0_28px_rgba(74,130,203,0.35)] motion-reduce:transition-none group-hover:motion-reduce:translate-y-0">
+                  <Icon className="h-6 w-6" />
+                  <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--hm-accent)] text-xs font-bold text-white">
+                    {i + 1}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-display text-xl text-[var(--hm-text)]">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--hm-muted)]">{step.body}</p>
+              </li>
+            );
+          })}
         </ol>
 
         <div className="mt-12 flex flex-col items-center gap-3 text-center sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:text-left sm:gap-4">
           <a
-            href={SITE.whatsapp}
+            href={whatsappSiteUrl(lang)}
             target="_blank"
             rel="noopener noreferrer"
             className="wa-gradient inline-flex w-full max-w-sm items-center justify-center gap-2.5 rounded-md px-5 py-3 text-sm font-semibold text-white shadow-[0_0_28px_rgba(37,211,102,0.3)] transition-opacity hover:opacity-90 sm:w-auto"
           >
             <WhatsAppIcon className="h-5 w-5" />
-            Start your booking on WhatsApp
+            {t.booking.cta}
           </a>
-          <span className="text-sm text-[var(--hm-muted)]">
-            Usually confirmed within minutes.
-          </span>
+          <span className="text-sm text-[var(--hm-muted)]">{t.booking.confirmedNote}</span>
         </div>
       </div>
     </section>
