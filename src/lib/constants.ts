@@ -228,7 +228,7 @@ export const FAQ_ITEMS = [
   {
     question: "Are you hiring? I am looking for a maid / cleaner job.",
     answer:
-      "No. This website and WhatsApp are for customers booking a clean. We are not advertising job vacancies here. If you want to join our cleaner pool, email contact@hauzmaid.com — do not use the booking WhatsApp.",
+      "No. We already have enough helpers. This website, ads, and WhatsApp are only for new customers booking a clean. We are not hiring — please do not apply.",
   },
 ] as const;
 

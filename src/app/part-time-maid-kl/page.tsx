@@ -27,14 +27,14 @@ const FAQS = [
   {
     question: "Is this a job ad? I want to work as a maid.",
     answer:
-      "No. This page is for customers booking a helper for their home. Job applications go to contact@hauzmaid.com, not WhatsApp.",
+      "No. We already have enough helpers. This page and WhatsApp are only for homeowners booking a clean. We are not hiring — please do not apply.",
   },
 ];
 
 export const metadata: Metadata = {
   title: { absolute: "Book a Part-Time Maid for Your Home | KL | From RM80" },
   description:
-    "Book hourly house cleaning for your home in Kuala Lumpur. From RM80, no deposit. For homeowners — not a job vacancy. WhatsApp 016-356 60 55.",
+    "Book hourly house cleaning for your home in Kuala Lumpur. From RM80, no deposit. Customers only — we are not hiring. WhatsApp 016-356 60 55.",
   alternates: { canonical: PATH },
   openGraph: {
     title: "Part Time Maid in KL | From RM80 | No Deposit",
@@ -65,9 +65,9 @@ export default function PartTimeMaidKlPage() {
         ]}
         kicker="Part-time maid · Klang Valley"
         h1="Book a part-time maid for your home in KL"
-        intro="Homeowners in Kuala Lumpur: book hourly helpers for your condo or landed house. WhatsApp to reserve a slot, no deposit, pay by transfer when the crew arrives. This page is not a job vacancy."
+        intro="Homeowners in Kuala Lumpur: book hourly helpers for your condo or landed house. WhatsApp to reserve a slot, no deposit, pay by transfer when the crew arrives. We are not hiring — this page is for new customers only."
         priceFrom="From RM80"
-        customerOnly="Looking for work / cari kerja? Do not WhatsApp this number."
+        customerOnly="Looking for work / cari kerja? Do not apply. Our helper team is full."
         whatsappMessage={`Hi Hauzmaid! I want to BOOK a part-time maid for my home. I am the customer (not applying for a job).\n\nArea: \nService: part-time maid`}
         lists={[
           {

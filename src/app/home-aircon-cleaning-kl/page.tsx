@@ -27,7 +27,7 @@ const FAQS = [
   {
     question: "Are you hiring cleaners?",
     answer:
-      "No. This page is for customers booking a clean. Job applications: contact@hauzmaid.com, not WhatsApp.",
+      "No. We already have enough helpers. This page and WhatsApp are only for customers booking a clean. We are not hiring — please do not apply.",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function HomeAirconCleaningKlPage() {
         h1="Home and aircon cleaning in Klang Valley — pay on arrival"
         intro="Professional home, office and aircon cleaning across Kuala Lumpur and Selangor. Book on WhatsApp and pay when the crew arrives — no deposit, no transport fee. Matches our ad promise: sparkling home and AC cleaning, pay on delivery."
         priceFrom="From RM70"
-        customerOnly="Looking for work / cari kerja? Do not WhatsApp this number."
+        customerOnly="Looking for work / cari kerja? Do not apply. Our helper team is full."
         whatsappMessage={`Hi Hauzmaid! I want to BOOK home / aircon cleaning. I am the customer (not applying for a job).\n\nArea: \nService: home and aircon cleaning`}
         lists={[
           {

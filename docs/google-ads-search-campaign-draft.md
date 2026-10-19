@@ -68,7 +68,7 @@ Diğer: home services, home services near me, prime lux, ultra cleaning, always 
 
 RSA başlık (iş arayanı düşürür): Book a maid for YOUR home · For homeowners · Not a job ad · From RM80
 
-Sitelink ekle: Jobs / not hiring → `/jobs`
+Sitelink ekle: We are not hiring → `/jobs`
 
 ### RSA + varlıklar (yayın anında)
 

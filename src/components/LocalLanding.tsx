@@ -67,7 +67,7 @@ export function LocalLanding({
           <p className="mt-4 rounded-md border border-[var(--hm-border)] bg-[var(--hm-surface)] px-4 py-3 text-sm text-[var(--hm-muted)]">
             {customerOnly}{" "}
             <Link href="/jobs" className="font-medium text-[var(--hm-accent)] hover:underline">
-              Jobs / not hiring
+              We are not hiring
             </Link>
           </p>
         )}
