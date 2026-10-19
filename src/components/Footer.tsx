@@ -57,6 +57,11 @@ export function Footer() {
                 {t.footer.cleaningTips}
               </Link>
             </li>
+            <li>
+              <Link href="/jobs" className="hover:text-[var(--hm-accent)]">
+                {t.footer.jobs}
+              </Link>
+            </li>
           </ul>
         </div>
 

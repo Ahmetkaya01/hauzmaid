@@ -225,6 +225,11 @@ export const FAQ_ITEMS = [
     answer:
       "Message us on WhatsApp with your area, preferred date, number of helpers, and hours. We confirm the booking, helpers arrive, and you pay by bank transfer on arrival.",
   },
+  {
+    question: "Are you hiring? I am looking for a maid / cleaner job.",
+    answer:
+      "No. This website and WhatsApp are for customers booking a clean. We are not advertising job vacancies here. If you want to join our cleaner pool, email contact@hauzmaid.com — do not use the booking WhatsApp.",
+  },
 ] as const;
 
 /** The prefilled text is visible to the customer, so it stays plain and short. */
@@ -235,7 +240,7 @@ export function whatsappQuoteUrl(message: string): string {
 export function whatsappSiteUrl(lang: "en" | "ms" = "en"): string {
   return whatsappQuoteUrl(
     lang === "ms"
-      ? "Hai Hauzmaid! Saya ingin sebut harga pembersihan.\n\nArea: \nService: pembersihan rumah"
-      : "Hi Hauzmaid! I'd like a cleaning quote, please.\n\nArea: \nService: house cleaning",
+      ? "Hai Hauzmaid! Saya nak TEMPAH cucian rumah. Saya pelanggan (bukan mohon kerja).\n\nArea: \nService: pembersihan rumah"
+      : "Hi Hauzmaid! I want to BOOK house cleaning. I am the customer (not applying for a job).\n\nArea: \nService: house cleaning",
   );
 }

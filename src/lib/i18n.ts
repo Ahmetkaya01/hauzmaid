@@ -254,6 +254,7 @@ export type Dictionary = {
     popularAreas: string;
     partTimeMaid: string;
     homeAircon: string;
+    jobs: string;
     nap: string;
     hours: string;
   };
@@ -283,7 +284,7 @@ const en: Dictionary = {
     subStrong: "no deposit, no transport fee",
     sub2: ". From ",
     sub3: "/hr per maid (min 3 hours).",
-    trust: ["Cheras · Subang · KLCC · Puchong", "No deposit", "No transport fee", "Pay on arrival"],
+    trust: ["Cheras · Subang · KLCC · Puchong", "For homeowners", "No deposit", "Pay on arrival"],
     ctaWhatsApp: "WhatsApp us",
     ctaPrices: "See prices",
   },
@@ -641,6 +642,11 @@ const en: Dictionary = {
         answer:
           "Message us on WhatsApp with your area, preferred date, number of helpers, and hours. We confirm the booking, helpers arrive, and you pay by bank transfer on arrival.",
       },
+      {
+        question: "Are you hiring? I am looking for a maid job.",
+        answer:
+          "No. WhatsApp is for customers booking a clean only. We are not posting vacancies here. Cleaners who want to join the pool can email contact@hauzmaid.com.",
+      },
     ],
   },
   contact: {
@@ -724,6 +730,7 @@ const en: Dictionary = {
     popularAreas: "Popular areas",
     partTimeMaid: "Part-time maid KL",
     homeAircon: "Home & aircon cleaning",
+    jobs: "Jobs / not hiring",
     nap: "Kuala Lumpur, Malaysia · Service area: Klang Valley (we come to your home)",
     hours: "Mon–Sun 09:00–18:00 · WhatsApp also open at night",
   },
@@ -753,7 +760,7 @@ const ms: Dictionary = {
     subStrong: "tiada deposit, tiada caj pengangkutan",
     sub2: ". Dari ",
     sub3: "/jam per pembantu (min 3 jam).",
-    trust: ["Cheras · Subang · KLCC · Puchong", "Tiada deposit", "Tiada caj pengangkutan", "Bayar semasa ketibaan"],
+    trust: ["Cheras · Subang · KLCC · Puchong", "Untuk tuan rumah", "Tiada deposit", "Bayar semasa ketibaan"],
     ctaWhatsApp: "WhatsApp kami",
     ctaPrices: "Lihat harga",
   },
@@ -1130,6 +1137,11 @@ const ms: Dictionary = {
         answer:
           "Hantar mesej WhatsApp kepada kami dengan kawasan, tarikh pilihan, bilangan pembantu dan jam. Kami sahkan tempahan, pembantu tiba, dan anda membayar melalui pindahan bank semasa ketibaan.",
       },
+      {
+        question: "Adakah anda mengambil pekerja? Saya cari kerja pembantu.",
+        answer:
+          "Tidak. WhatsApp ini hanya untuk pelanggan yang nak tempah cucian. Kami tidak iklan kekosongan kerja di sini. Pencuci yang mahu sertai panel, emel contact@hauzmaid.com.",
+      },
     ],
   },
   contact: {
@@ -1214,6 +1226,7 @@ const ms: Dictionary = {
     popularAreas: "Kawasan popular",
     partTimeMaid: "Pembantu sambilan KL",
     homeAircon: "Cucian rumah & aircond",
+    jobs: "Kerja / bukan iklan jawatan",
     nap: "Kuala Lumpur, Malaysia · Kawasan servis: Lembah Klang (kami datang ke rumah anda)",
     hours: "Isn–Ahad 09:00–18:00 · WhatsApp juga dibuka malam",
   },

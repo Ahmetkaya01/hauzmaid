@@ -24,12 +24,17 @@ const FAQS = [
     answer:
       "Yes. Those are our busiest areas, plus Bangsar South, Setapak, Shah Alam, Ampang, and the rest of Klang Valley.",
   },
+  {
+    question: "Is this a job ad? I want to work as a maid.",
+    answer:
+      "No. This page is for customers booking a helper for their home. Job applications go to contact@hauzmaid.com, not WhatsApp.",
+  },
 ];
 
 export const metadata: Metadata = {
-  title: { absolute: "Part Time Maid in KL | From RM80 | No Deposit — Hauzmaid" },
+  title: { absolute: "Book a Part-Time Maid for Your Home | KL | From RM80" },
   description:
-    "Part-time maid and hourly house cleaning in Kuala Lumpur and Klang Valley. From RM80, no deposit, pay on arrival. WhatsApp 016-356 60 55.",
+    "Book hourly house cleaning for your home in Kuala Lumpur. From RM80, no deposit. For homeowners — not a job vacancy. WhatsApp 016-356 60 55.",
   alternates: { canonical: PATH },
   openGraph: {
     title: "Part Time Maid in KL | From RM80 | No Deposit",
@@ -59,10 +64,11 @@ export default function PartTimeMaidKlPage() {
           { href: PATH, label: "Part-time maid KL" },
         ]}
         kicker="Part-time maid · Klang Valley"
-        h1="Part time maid in KL — hourly cleaning from RM80"
-        intro="Need a part-time maid in Kuala Lumpur? Hauzmaid sends friendly hourly helpers for condos and landed homes. Fast WhatsApp booking, no deposit, pay by transfer when the crew arrives. Same commercial terms as our ads: hourly cleaning, Klang Valley coverage, quick reply."
+        h1="Book a part-time maid for your home in KL"
+        intro="Homeowners in Kuala Lumpur: book hourly helpers for your condo or landed house. WhatsApp to reserve a slot, no deposit, pay by transfer when the crew arrives. This page is not a job vacancy."
         priceFrom="From RM80"
-        whatsappMessage={`Hi Hauzmaid! I'd like a part-time maid quote.\n\nArea: \nService: part-time maid`}
+        customerOnly="Looking for work / cari kerja? Do not WhatsApp this number."
+        whatsappMessage={`Hi Hauzmaid! I want to BOOK a part-time maid for my home. I am the customer (not applying for a job).\n\nArea: \nService: part-time maid`}
         lists={[
           {
             heading: "What you get",

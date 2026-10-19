@@ -24,6 +24,11 @@ const FAQS = [
     answer:
       "The RM70 service is non-chemical (filter clean, gas check, top-up up to 20 PSI, 2-week warranty). Overhaul uses a chemical clean of the indoor unit.",
   },
+  {
+    question: "Are you hiring cleaners?",
+    answer:
+      "No. This page is for customers booking a clean. Job applications: contact@hauzmaid.com, not WhatsApp.",
+  },
 ];
 
 export const metadata: Metadata = {
@@ -62,7 +67,8 @@ export default function HomeAirconCleaningKlPage() {
         h1="Home and aircon cleaning in Klang Valley — pay on arrival"
         intro="Professional home, office and aircon cleaning across Kuala Lumpur and Selangor. Book on WhatsApp and pay when the crew arrives — no deposit, no transport fee. Matches our ad promise: sparkling home and AC cleaning, pay on delivery."
         priceFrom="From RM70"
-        whatsappMessage={`Hi Hauzmaid! I'd like a home / aircon cleaning quote.\n\nArea: \nService: home and aircon cleaning`}
+        customerOnly="Looking for work / cari kerja? Do not WhatsApp this number."
+        whatsappMessage={`Hi Hauzmaid! I want to BOOK home / aircon cleaning. I am the customer (not applying for a job).\n\nArea: \nService: home and aircon cleaning`}
         lists={[
           {
             heading: "House & office",

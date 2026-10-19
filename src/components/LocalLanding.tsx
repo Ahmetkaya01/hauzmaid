@@ -16,6 +16,7 @@ type Props = {
   whatsappMessage: string;
   lists: ListBlock[];
   note?: string;
+  customerOnly?: string;
   faqs: Faq[];
   related: { heading: string; links: LinkItem[] }[];
 };
@@ -29,6 +30,7 @@ export function LocalLanding({
   whatsappMessage,
   lists,
   note,
+  customerOnly,
   faqs,
   related,
 }: Props) {
@@ -61,6 +63,14 @@ export function LocalLanding({
           {h1}
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-[var(--hm-muted)]">{intro}</p>
+        {customerOnly && (
+          <p className="mt-4 rounded-md border border-[var(--hm-border)] bg-[var(--hm-surface)] px-4 py-3 text-sm text-[var(--hm-muted)]">
+            {customerOnly}{" "}
+            <Link href="/jobs" className="font-medium text-[var(--hm-accent)] hover:underline">
+              Jobs / not hiring
+            </Link>
+          </p>
+        )}
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a

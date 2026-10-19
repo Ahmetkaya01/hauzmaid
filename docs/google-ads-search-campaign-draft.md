@@ -60,9 +60,15 @@ Final URL: ilgili `/areas/{slug}`
 
 Üçüncü grup (aircon / office) RM20 ile açılmaz. Smart 2 o niyeti zaten yakalıyor.
 
-### Negatifler (hesap düzeyinde de ekle)
+### Negatifler (hesap düzeyinde de ekle — Smart dahil)
 
-home services, home services near me, prime lux, ultra cleaning, always clean, 4k cleaning, cleaner agent, maid agency, maid salary, job, jobs, hiring, vacancy, freelance, course, training, cheap, free, 24 hours, commercial building, factory, hospital, school
+İş arayan sızıntısı (EN + BM): job, jobs, hiring, vacancy, vacancies, apply, application, interview, walk in, salary, gaji, maid job, cleaner job, part time job, kerja, cari kerja, kerja kosong, jawatan, ambil kerja, mohon, pembantu rumah kerja, maid agency, cleaner agent, freelance, course, training
+
+Diğer: home services, home services near me, prime lux, ultra cleaning, always clean, 4k cleaning, cheap, free, 24 hours, commercial building, factory, hospital, school
+
+RSA başlık (iş arayanı düşürür): Book a maid for YOUR home · For homeowners · Not a job ad · From RM80
+
+Sitelink ekle: Jobs / not hiring → `/jobs`
 
 ### RSA + varlıklar (yayın anında)
 
