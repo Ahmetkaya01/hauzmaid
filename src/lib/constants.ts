@@ -15,7 +15,7 @@ export const SITE = {
   addressLocality: "Kuala Lumpur",
   addressRegion: "Wilayah Persekutuan Kuala Lumpur",
   addressCountry: "MY",
-  slogan: "No deposit, no transport fee. From RM80.",
+  slogan: "House cleaning & aircon service. From RM80. No deposit.",
   openingHours: "Mo-Su 09:00-18:00",
   opens: "09:00",
   closes: "18:00",
@@ -42,8 +42,8 @@ export const SERVICES = [
     id: "house-office",
     title: "House & office cleaning",
     description:
-      "Reliable residential and office cleaning across Klang Valley — one-time, weekly, or monthly.",
-    keywords: "house cleaning KL · residential cleaning services",
+      "Professional house cleaning for condos, apartments and landed homes — weekly, fortnightly or one-time.",
+    keywords: "house cleaning KL · weekly maid service KL",
   },
   {
     id: "move",
@@ -61,10 +61,10 @@ export const SERVICES = [
   },
   {
     id: "aircon",
-    title: "Aircon service",
+    title: "Aircon cleaning & service",
     description:
-      "Non-chemical cleaning from RM70. Overhaul for wall-mounted (from RM150) and cassette (RM330). Free gas top-up up to 20 PSI + 2-week warranty.",
-    keywords: "aircon cleaning KL",
+      "Musty smell, weak cooling or leak? Non-chemical aircon cleaning from RM70. Overhaul / chemical wash from RM150.",
+    keywords: "aircon cleaning KL · cucian aircond KL",
     quoteOnly: true,
   },
 ] as const;
@@ -224,6 +224,16 @@ export const FAQ_ITEMS = [
     question: "How do I book?",
     answer:
       "Message us on WhatsApp with your area, preferred date, number of helpers, and hours. We confirm the booking, helpers arrive, and you pay by bank transfer on arrival.",
+  },
+  {
+    question: "How much is house cleaning in KL?",
+    answer:
+      "Minimum is RM80 (1 helper × 2 hours). At 3+ maid-hours the rate is RM35/hour per maid — e.g. 2 helpers × 2 hours = RM140. No deposit, no transport fee.",
+  },
+  {
+    question: "How much is aircon cleaning in KL?",
+    answer:
+      "Non-chemical aircon cleaning is RM70. Overhaul / chemical wash starts from RM150 (wall-mounted) and RM330 for cassette. Free gas top-up up to 20 PSI and a 2-week warranty.",
   },
   {
     question: "Are you hiring? I am looking for a maid / cleaner job.",

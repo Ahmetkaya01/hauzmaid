@@ -32,12 +32,23 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "House Cleaning Cheras, Subang, KLCC | Hauzmaid",
+    default: "House Cleaning & Aircon Service KL | Hauzmaid",
     template: "%s | Hauzmaid",
   },
   description:
-    "House cleaning in Cheras, Subang Jaya (USJ/SS), KLCC, Bukit Bintang, Puchong and Klang Valley. Part-time maid from RM35/hr. No deposit, no transport fee. WhatsApp 016-356 60 55.",
+    "Professional house cleaning and aircon service in Kuala Lumpur & Klang Valley. Weekly or one-time maid for condos and landed homes from RM80. Aircon cleaning from RM70. No deposit. WhatsApp 016-356 60 55.",
   keywords: [
+    "house cleaning KL",
+    "house cleaning Klang Valley",
+    "maid service KL",
+    "part time maid KL",
+    "hourly maid service KL",
+    "weekly house cleaning KL",
+    "pembersihan rumah KL",
+    "pembantu rumah sambilan",
+    "cucian aircond KL",
+    "aircon cleaning KL",
+    "aircond chemical wash KL",
     "house cleaning Cheras",
     "maid service Subang Jaya",
     "cleaning service KLCC",
@@ -47,21 +58,17 @@ export const metadata: Metadata = {
     "house cleaning Setapak",
     "maid service Shah Alam",
     "cleaning Old Klang Road",
-    "house cleaning KL",
-    "part time maid KL",
-    "hourly maid service KL",
     "move-out cleaning KL",
     "post renovation cleaning KL",
-    "aircon cleaning KL",
   ],
   openGraph: {
     type: "website",
     locale: "en_MY",
     url: SITE.url,
     siteName: SITE.name,
-    title: "House Cleaning Cheras, Subang, KLCC | Hauzmaid",
+    title: "House Cleaning & Aircon Service KL | Hauzmaid",
     description:
-      "House cleaning in Cheras, Subang Jaya, KLCC, Puchong and Klang Valley. No deposit, no transport fee. From RM35/hr per maid.",
+      "Weekly or one-time house cleaning and aircon service across Klang Valley. From RM80 / aircon from RM70. No deposit, no transport fee.",
     images: [
       {
         url: "/og-image.png",
@@ -73,9 +80,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "House Cleaning Cheras, Subang, KLCC | Hauzmaid",
+    title: "House Cleaning & Aircon Service KL | Hauzmaid",
     description:
-      "Maid service in Cheras, Subang, KLCC and Klang Valley — from RM35/hr per maid. No deposit, no transport fee.",
+      "House cleaning and aircon service in Cheras, Subang, KLCC and Klang Valley. From RM80. No deposit, no transport fee.",
     images: ["/og-image.png"],
   },
   robots: {

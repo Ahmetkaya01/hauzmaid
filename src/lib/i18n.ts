@@ -279,20 +279,21 @@ const en: Dictionary = {
     openMenu: "Open menu",
   },
   hero: {
-    h1: "House cleaning in Cheras, Subang, KLCC & Klang Valley",
-    sub1: "Reliable maid & cleaning in KL — ",
+    h1: "House cleaning & aircon service in KL & Klang Valley",
+    sub1: "Weekly or one-time maid for condos and landed homes — ",
     subStrong: "no deposit, no transport fee",
     sub2: ". From ",
-    sub3: "/hr per maid (min 3 hours).",
+    sub3: "/hr per maid (min 3 hours). Aircon cleaning from RM70.",
     trust: ["Cheras · Subang · KLCC · Puchong", "Customers only", "No deposit", "Pay on arrival"],
     ctaWhatsApp: "WhatsApp us",
     ctaPrices: "See prices",
   },
   services: {
     kicker: "Services",
-    h2: "What we clean for you in Klang Valley",
-    intro1: "Pick a service below — then WhatsApp us with your area, helpers, and hours. House cleaning starts from ",
-    intro2: " (1 helper · 2 hours).",
+    h2: "House cleaning, part-time maid & aircon service",
+    intro1:
+      "Book a weekly, fortnightly, or one-time clean for your home or office — then WhatsApp your area, helpers, and hours. House cleaning starts from ",
+    intro2: " (1 helper · 2 hours). Add aircon service in the same chat.",
     items: [
       {
         id: "house-office",
@@ -300,8 +301,8 @@ const en: Dictionary = {
         from: "From RM80",
         title: "House & office cleaning",
         description:
-          "Reliable residential and office cleaning across Klang Valley — one-time, weekly, or monthly.",
-        points: ["Home or office", "One-time / weekly / monthly", "Min 2 hours"],
+          "Professional house cleaning for condos, apartments, and landed homes — one-time, weekly, or fortnightly across Klang Valley.",
+        points: ["Condo, apartment & landed", "Weekly / one-time / fortnightly", "From RM80"],
       },
       {
         id: "move",
@@ -325,12 +326,12 @@ const en: Dictionary = {
         id: "aircon",
         badge: "Cooling units",
         from: "From RM70",
-        title: "Aircon service",
+        title: "Aircon cleaning & service",
         description:
-          "Non-chemical cleaning from RM70. Overhaul for wall-mounted (from RM150) and cassette (RM330). Free gas top-up up to 20 PSI + 2-week warranty.",
+          "Musty smell, weak cooling, or leaking? Non-chemical aircon cleaning from RM70. Overhaul / chemical wash from RM150. Free gas top-up up to 20 PSI + 2-week warranty.",
         points: [
-          "Non-chemical from RM70",
-          "Overhaul from RM150",
+          "Smell, leak & weak cooling",
+          "From RM70 · overhaul from RM150",
           "Free gas top-up (up to 20 PSI)",
         ],
         quoteOnly: true,
@@ -410,9 +411,9 @@ const en: Dictionary = {
   },
   about: {
     kicker: "About Hauzmaid",
-    h2: "Making homes & offices shine across Klang Valley",
-    p1: "At Hauzmaid, our goal is to make your home and office shine. We match your request with reliable house cleaning services in KL — on time, with clear pricing and 100% customer focus.",
-    p2: "From basic home cleans to ironing, folding clothes, fridge & fan cleaning, post-renovation, and aircon service — tell us what you need when you book.",
+    h2: "A Klang Valley house cleaning company for busy homeowners",
+    p1: "Hauzmaid is a professional house cleaning and aircon service in Kuala Lumpur and Selangor. We send hourly helpers to condos, apartments, and landed homes — weekly, fortnightly, or one-time — with clear prices and no deposit.",
+    p2: "Book house cleaning, move-in or move-out deep cleans, post-renovation cleaning, office cleaning, and aircon service on WhatsApp. Extra tasks such as ironing, folding clothes, fridge and ceiling fan — mention them when you book.",
     imageAlt: "Hauzmaid cleaner in branded blue uniform",
     tasksTitle: "Tasks we cover",
     tasksSub:
@@ -489,7 +490,8 @@ const en: Dictionary = {
   whyUs: {
     kicker: "Why Hauzmaid",
     h2: "Four reasons customers choose us",
-    intro: "Local cleaning in Klang Valley — honest pricing, no deposit, and booking that starts on WhatsApp.",
+    intro:
+      "Customers book Hauzmaid when they want a maid for their home — not a job ad. Clear hourly prices, no deposit, and a WhatsApp quote before we arrive.",
     reasons: [
       {
         title: "No deposit",
@@ -517,9 +519,9 @@ const en: Dictionary = {
   },
   areas: {
     kicker: "Service areas",
-    h2: "Cleaning in Cheras, Subang, KLCC & across Klang Valley",
+    h2: "House cleaning service in Cheras, Subang, KLCC & Klang Valley",
     intro:
-      "Looking for a maid service near you? Most Hauzmaid bookings are in Cheras, Subang Jaya (USJ/SS), KLCC / Bukit Bintang, Puchong, and Bangsar South — plus daily and weekly cleans across the rest of Klang Valley, with no transport fee.",
+      "Looking for house cleaning or a part-time maid near you? We cover Cheras, Subang Jaya (USJ/SS), KLCC / Bukit Bintang, Puchong, Bangsar South, PJ, Shah Alam, and the rest of Klang Valley — weekly or one-time, with no transport fee.",
     featured: [
       { name: "Cheras", blurb: "Our busiest area — weekly cleaning, condos, and post-renovation homes." },
       { name: "Subang Jaya", blurb: "Hourly maids across USJ, SS12–SS19, Sunway, and Putra Heights." },
@@ -643,6 +645,16 @@ const en: Dictionary = {
           "Message us on WhatsApp with your area, preferred date, number of helpers, and hours. We confirm the booking, helpers arrive, and you pay by bank transfer on arrival.",
       },
       {
+        question: "How much is house cleaning in KL?",
+        answer:
+          "Minimum is RM80 (1 helper × 2 hours). At 3+ maid-hours the rate is RM35/hour per maid — e.g. 2 helpers × 2 hours = RM140. No deposit, no transport fee.",
+      },
+      {
+        question: "How much is aircon cleaning in KL?",
+        answer:
+          "Non-chemical aircon cleaning is RM70. Overhaul / chemical wash starts from RM150 (wall-mounted) and RM330 for cassette. Free gas top-up up to 20 PSI and a 2-week warranty.",
+      },
+      {
         question: "Are you hiring? I am looking for a maid job.",
         answer:
           "No. We already have enough helpers. This website, ads, and WhatsApp are only for new customers booking a clean. We are not hiring — please do not apply.",
@@ -756,21 +768,21 @@ const ms: Dictionary = {
     openMenu: "Buka menu",
   },
   hero: {
-    h1: "Pembersihan rumah di Cheras, Subang, KLCC & Lembah Klang",
-    sub1: "Khidmat pembantu & pembersihan yang boleh dipercayai di KL — ",
+    h1: "Pembersihan rumah & cucian aircond di Lembah Klang",
+    sub1: "Pembantu sambilan mingguan atau sekali untuk condo dan rumah bertanah — ",
     subStrong: "tiada deposit, tiada caj pengangkutan",
     sub2: ". Dari ",
-    sub3: "/jam per pembantu (min 3 jam).",
+    sub3: "/jam per pembantu (min 3 jam). Cucian aircond dari RM70.",
     trust: ["Cheras · Subang · KLCC · Puchong", "Pelanggan sahaja", "Tiada deposit", "Bayar semasa ketibaan"],
     ctaWhatsApp: "WhatsApp kami",
     ctaPrices: "Lihat harga",
   },
   services: {
     kicker: "Perkhidmatan",
-    h2: "Apa yang kami bersihkan untuk anda di Lembah Klang",
+    h2: "Pembersihan rumah, pembantu sambilan & cucian aircond",
     intro1:
-      "Pilih perkhidmatan di bawah — kemudian WhatsApp kami dengan kawasan, bilangan pembantu dan jam anda. Pembersihan rumah bermula dari ",
-    intro2: " (1 pembantu · 2 jam).",
+      "Tempah cucian mingguan, dua minggu sekali, atau sekali untuk rumah atau pejabat — kemudian WhatsApp kawasan, bilangan pembantu dan jam. Pembersihan rumah bermula dari ",
+    intro2: " (1 pembantu · 2 jam). Tambah cucian aircond dalam chat yang sama.",
     items: [
       {
         id: "house-office",
@@ -778,8 +790,8 @@ const ms: Dictionary = {
         from: "Dari RM80",
         title: "Pembersihan rumah & pejabat",
         description:
-          "Pembersihan kediaman dan pejabat yang boleh dipercayai di seluruh Lembah Klang — sekali, mingguan, atau bulanan.",
-        points: ["Rumah atau pejabat", "Sekali / mingguan / bulanan", "Minimum 2 jam"],
+          "Pembersihan rumah profesional untuk condo, pangsapuri dan rumah bertanah — sekali, mingguan atau dua minggu sekali di Lembah Klang.",
+        points: ["Condo, pangsapuri & rumah bertanah", "Mingguan / sekali / dua minggu", "Dari RM80"],
       },
       {
         id: "move",
@@ -803,12 +815,12 @@ const ms: Dictionary = {
         id: "aircon",
         badge: "Unit penyaman udara",
         from: "Dari RM70",
-        title: "Servis aircond",
+        title: "Cucian & servis aircond",
         description:
-          "Cucian tanpa bahan kimia dari RM70. Overhaul untuk jenis dinding (dari RM150) dan kaset (RM330). Top-up gas percuma sehingga 20 PSI + jaminan 2 minggu.",
+          "Bau hapak, sejuk lemah, atau bocor? Cucian aircond tanpa kimia dari RM70. Overhaul / cucian kimia dari RM150. Top-up gas percuma sehingga 20 PSI + jaminan 2 minggu.",
         points: [
-          "Tanpa bahan kimia dari RM70",
-          "Overhaul dari RM150",
+          "Bau, bocor & sejuk lemah",
+          "Dari RM70 · overhaul dari RM150",
           "Top-up gas percuma (sehingga 20 PSI)",
         ],
         quoteOnly: true,
@@ -890,9 +902,9 @@ const ms: Dictionary = {
   },
   about: {
     kicker: "Tentang Hauzmaid",
-    h2: "Menjadikan rumah & pejabat berseri di seluruh Lembah Klang",
-    p1: "Di Hauzmaid, matlamat kami adalah menjadikan rumah dan pejabat anda berseri. Kami memadankan permintaan anda dengan perkhidmatan pembersihan rumah yang boleh dipercayai di KL — tepat pada masa, dengan harga yang jelas dan fokus 100% kepada pelanggan.",
-    p2: "Daripada pembersihan asas rumah hingga menggosok baju, melipat pakaian, cucian peti sejuk & kipas, selepas ubah suai, dan servis aircond — beritahu kami keperluan anda semasa menempah.",
+    h2: "Syarikat pembersihan rumah Lembah Klang untuk tuan rumah",
+    p1: "Hauzmaid ialah khidmat pembersihan rumah dan aircond profesional di Kuala Lumpur dan Selangor. Kami hantar pembantu mengikut jam ke condo, pangsapuri dan rumah bertanah — mingguan, dua minggu sekali, atau sekali — dengan harga jelas dan tiada deposit.",
+    p2: "Tempah pembersihan rumah, cucian pindah masuk/keluar, selepas ubah suai, pejabat, dan cucian aircond di WhatsApp. Tugas tambahan seperti gosok baju, lipat pakaian, peti sejuk dan kipas siling — nyatakan semasa menempah.",
     imageAlt: "Pencuci Hauzmaid dalam uniform biru berjenama",
     tasksTitle: "Tugas yang kami lakukan",
     tasksSub:
@@ -972,7 +984,7 @@ const ms: Dictionary = {
     kicker: "Kenapa Hauzmaid",
     h2: "Empat sebab pelanggan memilih kami",
     intro:
-      "Pembersihan tempatan di Lembah Klang — harga jujur, tiada deposit, dan tempahan bermula di WhatsApp.",
+      "Pelanggan tempah Hauzmaid bila nak pembantu untuk rumah — bukan iklan kerja. Harga jam yang jelas, tiada deposit, dan sebut harga WhatsApp sebelum kami tiba.",
     reasons: [
       {
         title: "Tiada deposit",
@@ -1000,9 +1012,9 @@ const ms: Dictionary = {
   },
   areas: {
     kicker: "Kawasan perkhidmatan",
-    h2: "Pembersihan di Cheras, Subang, KLCC & seluruh Lembah Klang",
+    h2: "Khidmat pembersihan rumah di Cheras, Subang, KLCC & Lembah Klang",
     intro:
-      "Mencari khidmat pembantu berdekatan anda? Tempahan Hauzmaid paling ramai di Cheras, Subang Jaya (USJ/SS), KLCC / Bukit Bintang, Puchong dan Bangsar South — serta pembersihan harian dan mingguan di seluruh Lembah Klang, tanpa caj pengangkutan.",
+      "Cari pembersihan rumah atau pembantu sambilan berdekatan anda? Kami liputi Cheras, Subang Jaya (USJ/SS), KLCC / Bukit Bintang, Puchong, Bangsar South, PJ, Shah Alam dan seluruh Lembah Klang — mingguan atau sekali, tanpa caj pengangkutan.",
     featured: [
       { name: "Cheras", blurb: "Kawasan paling ramai tempahan — pembersihan mingguan, kondo dan selepas ubah suai." },
       { name: "Subang Jaya", blurb: "Pembantu mengikut jam di USJ, SS12–SS19, Sunway dan Putra Heights." },
@@ -1137,6 +1149,16 @@ const ms: Dictionary = {
         question: "Bagaimanakah cara menempah?",
         answer:
           "Hantar mesej WhatsApp kepada kami dengan kawasan, tarikh pilihan, bilangan pembantu dan jam. Kami sahkan tempahan, pembantu tiba, dan anda membayar melalui pindahan bank semasa ketibaan.",
+      },
+      {
+        question: "Berapa harga pembersihan rumah di KL?",
+        answer:
+          "Minimum RM80 (1 pembantu × 2 jam). Jika jumlah jam pembantu 3 atau lebih, kadarnya RM35/jam — cth. 2 pembantu × 2 jam = RM140. Tiada deposit, tiada caj pengangkutan.",
+      },
+      {
+        question: "Berapa harga cucian aircond di KL?",
+        answer:
+          "Cucian tanpa kimia RM70. Overhaul / cucian kimia dari RM150 (dinding) dan RM330 untuk kaset. Top-up gas percuma sehingga 20 PSI dan jaminan 2 minggu.",
       },
       {
         question: "Adakah anda mengambil pekerja? Saya cari kerja pembantu.",

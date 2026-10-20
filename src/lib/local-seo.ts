@@ -41,19 +41,19 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     slug: "house-cleaning",
     name: "House cleaning",
-    title: "House Cleaning Service KL & Klang Valley — From RM80",
-    h1: "House cleaning service in KL & Klang Valley",
+    title: "House Cleaning Service KL — Weekly or One-Time From RM80",
+    h1: "Professional house cleaning service in KL & Klang Valley",
     metaDescription:
-      "Hourly house cleaning and part-time maid service across Kuala Lumpur and Klang Valley. From RM80 (1 maid × 2 hrs), RM35/hr for 3+ maid-hours. No deposit, no transport fee.",
+      "Book weekly, fortnightly or one-time house cleaning for condos, apartments and landed homes in Kuala Lumpur and Selangor. Part-time maid from RM80. No deposit, no transport fee.",
     priceFrom: "From RM80",
     intro:
-      "Hauzmaid sends trained part-time maids to condos, apartments, and landed homes across Kuala Lumpur and Selangor. Book a one-time clean before guests arrive, or a weekly or monthly slot so the house stays under control. You choose the number of helpers and hours; we bring the people, and you only pay when they arrive.",
+      "Hauzmaid is a house cleaning service for homeowners in Kuala Lumpur and Selangor — not a job listing. Book a weekly or fortnightly part-time maid so the house stays under control, or a one-time clean before guests. We cover condos, apartments, and landed homes. You choose helpers and hours; pay by transfer when the crew arrives.",
     includes: [
-      "Sweeping, vacuuming, and mopping all floors",
-      "Kitchen counters, stove top, sink, and cabinet fronts",
-      "Bathrooms: toilet, sink, shower area, mirrors, and tiles",
+      "Living room: dust surfaces, organise, vacuum and mop, empty bins",
+      "Kitchen: counters, stove top, sink, cabinet fronts, and floors",
+      "Bathrooms: toilet, sink, shower, mirrors, and tiles",
+      "Bedrooms: make the bed, wipe surfaces, tidy, vacuum and mop",
       "Dusting furniture, shelves, switches, and door frames",
-      "Bedrooms: bed making, wiping surfaces, tidying",
       "Rubbish removal to your bin area",
       "Extra on request: ironing, folding clothes, fridge, ceiling fan, outdoor areas",
     ],
@@ -79,6 +79,16 @@ export const SERVICE_PAGES: ServicePage[] = [
         question: "Do I need to provide cleaning supplies?",
         answer:
           "You can use your own supplies, or add tools and chemicals for RM30 per job and we will bring them.",
+      },
+      {
+        question: "How much is house cleaning in KL?",
+        answer:
+          "Minimum is RM80 (1 helper × 2 hours at RM40/hour). When total maid-hours is 3 or more, the rate is RM35/hour per maid — for example 2 helpers × 2 hours = RM140. No deposit and no transport fee.",
+      },
+      {
+        question: "Do you clean condos and landed houses?",
+        answer:
+          "Yes. Most bookings are high-rise condos in Cheras, Subang, KLCC and Bangsar South, plus terrace and semi-D homes in Puchong, Shah Alam and PJ. Tell us your unit type on WhatsApp.",
       },
     ],
   },
@@ -181,13 +191,13 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     slug: "aircon-cleaning",
     name: "Aircon cleaning & service",
-    title: "Aircon Cleaning & Service KL — From RM70",
-    h1: "Aircon cleaning & service in KL & Klang Valley",
+    title: "Aircon Cleaning KL — Smell, Leak & Weak Cooling From RM70",
+    h1: "Aircon cleaning in KL & Selangor — from RM70",
     metaDescription:
-      "Aircon service in Kuala Lumpur & Selangor: non-chemical cleaning RM70, overhaul from RM150, cassette RM330. Free gas top-up up to 20 PSI and 2-week warranty.",
+      "Aircon cleaning in Kuala Lumpur and Selangor for musty smell, weak cooling and water leak. Non-chemical RM70, overhaul / chemical wash from RM150. Free gas top-up and 2-week warranty.",
     priceFrom: "From RM70",
     intro:
-      "A dirty aircon cools poorly, uses more electricity, and blows dust and mould into the room. Hauzmaid's aircon team handles regular non-chemical cleaning and full overhaul cleaning for wall-mounted and cassette units, with a free gas top-up and a workmanship warranty.",
+      "Musty smell, weak cooling, or water leaking? Malaysia’s humidity packs dust and mould into the coil faster than a filter wipe can fix. Hauzmaid services wall-mounted and cassette units across Klang Valley — regular non-chemical cleaning from RM70, or a full overhaul / chemical wash from RM150, with free gas top-up up to 20 PSI and a 2-week workmanship warranty.",
     includes: [
       "Remove, clean, and service the filter",
       "Clean the cover, cooling coil, and blower",
@@ -220,15 +230,25 @@ export const SERVICE_PAGES: ServicePage[] = [
         answer:
           "Non-chemical cleaning services the filter, coil, blower, and drain without removing the unit. An overhaul dismantles the unit for a full wash — recommended when the aircon leaks, smells, or has not been serviced for a long time.",
       },
+      {
+        question: "How much is aircon cleaning in KL?",
+        answer:
+          "Non-chemical cleaning is RM70 for all types. Overhaul starts from RM150 for a wall-mounted unit below 1.5 HP, RM190 for 2 HP, and RM330 for a cassette below 3 HP. Every job includes free gas top-up up to 20 PSI and a 2-week warranty.",
+      },
+      {
+        question: "Can I book house cleaning and aircon service together?",
+        answer:
+          "Yes. WhatsApp both jobs in one chat — house cleaning from RM80 and aircon from RM70 — so the home is cleaned and cooling properly on the same visit when slots allow.",
+      },
     ],
   },
   {
     slug: "office-cleaning",
     name: "Office cleaning",
-    title: "Office Cleaning Service KL — Hourly Cleaners From RM80",
-    h1: "Office cleaning in KL & Klang Valley",
+    title: "Office Cleaning Service KL — Weekly or Evening From RM80",
+    h1: "Office cleaning service in KL & Klang Valley",
     metaDescription:
-      "Part-time office cleaners for small offices, shops, and studios in Kuala Lumpur and Selangor. One-time or weekly, from RM80. Night shift available.",
+      "Office cleaning in Kuala Lumpur and Selangor for small offices, shops and studios. Weekly or one-time from RM80. Night shift 6PM–12AM. No deposit.",
     priceFrom: "From RM80",
     intro:
       "Small offices, clinics, shops, and studios do not need a full-time cleaner — they need a reliable one. Hauzmaid provides hourly office cleaning on a one-time, weekly, or monthly basis, including evening slots so cleaning does not disturb your team.",
@@ -270,7 +290,7 @@ export const AREA_PAGES: AreaPage[] = [
     state: "Kuala Lumpur",
     neighbourhoods: ["KLCC", "Bukit Bintang", "Titiwangsa", "Sentul", "Brickfields", "Bukit Jalil", "Sri Petaling", "Taman Tun Dr Ismail"],
     intro:
-      "From high-rise condos around KLCC to family homes in TTDI and Bukit Jalil, Hauzmaid provides part-time maids and deep cleaning across the city. Book hourly helpers for a quick weekly clean or a full move-out deep clean.",
+      "House cleaning and maid service in Kuala Lumpur — high-rise condos around KLCC, family homes in TTDI and Bukit Jalil, plus aircon cleaning on the same WhatsApp booking. Book a weekly part-time maid or a move-out deep clean.",
     localNote:
       "Most KL bookings are condos with security check-in. Register our helpers with your guardhouse or management office before the booking day so they can go straight up to your unit.",
     popularServices: ["house-cleaning", "move-in-move-out-cleaning", "aircon-cleaning"],

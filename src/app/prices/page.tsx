@@ -5,9 +5,9 @@ import { SectionPage } from "@/components/SectionPage";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "House Cleaning Prices KL — From RM80, No Deposit",
+  title: "House Cleaning & Aircon Prices KL — From RM80",
   description:
-    "Hauzmaid house cleaning prices: RM80 minimum (1 maid × 2 hours), RM35/hr for 3+ maid-hours. Weekly 3-hour slot ≈ RM105. No deposit, no transport fee. Klang Valley.",
+    "House cleaning from RM80 (1 maid × 2 hours), RM35/hr for 3+ maid-hours. Weekly 3-hour slot ≈ RM105. Aircon cleaning from RM70. No deposit. Klang Valley.",
   alternates: { canonical: "/prices" },
   openGraph: {
     title: "House Cleaning Prices KL — From RM80",

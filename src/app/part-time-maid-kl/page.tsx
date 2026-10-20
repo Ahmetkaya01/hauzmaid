@@ -32,14 +32,14 @@ const FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: { absolute: "Book a Part-Time Maid for Your Home | KL | From RM80" },
+  title: { absolute: "Part-Time Maid KL — Book Weekly House Cleaning | From RM80" },
   description:
-    "Book hourly house cleaning for your home in Kuala Lumpur. From RM80, no deposit. Customers only — we are not hiring. WhatsApp 016-356 60 55.",
+    "Book a part-time maid for your condo or landed home in Kuala Lumpur. Weekly, fortnightly or one-time house cleaning from RM80. Customers only — not a job ad. WhatsApp 016-356 60 55.",
   alternates: { canonical: PATH },
   openGraph: {
-    title: "Part Time Maid in KL | From RM80 | No Deposit",
+    title: "Part-Time Maid KL — Weekly House Cleaning From RM80",
     description:
-      "Hourly cleaning in Cheras, Subang, KLCC, Puchong and Klang Valley. Pay when the crew arrives.",
+      "Book a part-time maid for your home in Cheras, Subang, KLCC and Klang Valley. Weekly or one-time. Pay when the crew arrives.",
     url: PATH,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Hauzmaid part-time maid KL" }],
   },
@@ -65,7 +65,7 @@ export default function PartTimeMaidKlPage() {
         ]}
         kicker="Part-time maid · Klang Valley"
         h1="Book a part-time maid for your home in KL"
-        intro="Homeowners in Kuala Lumpur: book hourly helpers for your condo or landed house. WhatsApp to reserve a slot, no deposit, pay by transfer when the crew arrives. We are not hiring — this page is for new customers only."
+        intro="Homeowners in Cheras, Subang, KLCC, Puchong and across Klang Valley: book weekly, fortnightly or one-time house cleaning for your condo or landed home. WhatsApp to reserve helpers and hours, no deposit, pay when the crew arrives. We are not hiring — this page is for new customers only."
         priceFrom="From RM80"
         customerOnly="Looking for work / cari kerja? Do not apply. Our helper team is full."
         whatsappMessage={`Hi Hauzmaid! I want to BOOK a part-time maid for my home. I am the customer (not applying for a job).\n\nArea: \nService: part-time maid`}

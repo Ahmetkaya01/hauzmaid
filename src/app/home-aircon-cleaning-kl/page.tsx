@@ -32,14 +32,14 @@ const FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: { absolute: "Home & Aircon Cleaning KL | Pay on Arrival — Hauzmaid" },
+  title: { absolute: "Home & Aircon Cleaning KL — House + AC From RM70" },
   description:
-    "Professional home, office and aircon cleaning in Klang Valley. Book now and pay when the crew arrives. From RM70. WhatsApp 016-356 60 55.",
+    "Book house cleaning and aircon service together in Kuala Lumpur and Selangor. Musty smell, weak cooling or leak — aircon from RM70. House cleaning from RM80. Pay on arrival.",
   alternates: { canonical: PATH },
   openGraph: {
-    title: "Home & Aircon Cleaning KL | Pay on Arrival",
+    title: "Home & Aircon Cleaning KL — House + AC From RM70",
     description:
-      "House, office and aircon cleaning in KL. Pay on arrival. No deposit, no transport fee.",
+      "House cleaning from RM80 and aircon cleaning from RM70 in KL. Smell, leak or weak cooling. Pay on arrival.",
     url: PATH,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Hauzmaid home and aircon cleaning" }],
   },
@@ -65,7 +65,7 @@ export default function HomeAirconCleaningKlPage() {
         ]}
         kicker="Home · office · aircon"
         h1="Home and aircon cleaning in Klang Valley — pay on arrival"
-        intro="Professional home, office and aircon cleaning across Kuala Lumpur and Selangor. Book on WhatsApp and pay when the crew arrives — no deposit, no transport fee. Matches our ad promise: sparkling home and AC cleaning, pay on delivery."
+        intro="Book house cleaning and aircon service in one WhatsApp chat. Weekly or one-time maid for your condo or landed home from RM80. Aircon cleaning from RM70 if it smells musty, cools weakly, or leaks. Pay when the crew arrives — no deposit, no transport fee."
         priceFrom="From RM70"
         customerOnly="Looking for work / cari kerja? Do not apply. Our helper team is full."
         whatsappMessage={`Hi Hauzmaid! I want to BOOK home / aircon cleaning. I am the customer (not applying for a job).\n\nArea: \nService: home and aircon cleaning`}

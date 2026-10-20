@@ -44,14 +44,19 @@ export function businessSchema() {
     paymentAccepted: "Bank transfer",
     additionalType: "https://en.wikipedia.org/wiki/Housekeeping",
     knowsAbout: [
-      "house cleaning",
-      "part-time maid",
+      "house cleaning Kuala Lumpur",
+      "part-time maid KL",
+      "weekly house cleaning",
       "hourly maid service",
+      "pembersihan rumah",
+      "pembantu rumah sambilan",
       "move-in cleaning",
       "move-out cleaning",
       "post-renovation cleaning",
       "office cleaning",
-      "aircon cleaning",
+      "aircon cleaning KL",
+      "cucian aircond",
+      "aircond chemical wash",
     ],
     identifier: {
       "@type": "PropertyValue",
@@ -59,7 +64,7 @@ export function businessSchema() {
       value: SITE.mapsCidValue,
     },
     description:
-      "Hauzmaid Cleaning Services provides hourly house cleaning, part-time maids, move-in/move-out cleaning, post-renovation cleaning, office cleaning, and aircon service in Cheras, Subang Jaya, KLCC, Bukit Bintang, Puchong, Bangsar South, and across Kuala Lumpur and the Klang Valley, Malaysia. From RM80, no deposit, no transport fee. Service-area business: we come to your home.",
+      "Hauzmaid Cleaning Services is a house cleaning and aircon company for homeowners in Cheras, Subang Jaya, KLCC, Bukit Bintang, Puchong, Bangsar South, and across Kuala Lumpur and the Klang Valley, Malaysia. Weekly or one-time part-time maid from RM80, aircon cleaning from RM70, no deposit, no transport fee. We come to your home.",
     address: {
       "@type": "PostalAddress",
       addressLocality: SITE.addressLocality,
